@@ -1,0 +1,80 @@
+{% extends 'Ecommerce/base.html'%}
+{% block body %}
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+
+      <!-- Heading -->
+      <h2 class="my-5 h2 text-center">Payment form</h2>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+          <!--Card-->
+          <div class="card">
+            <form action="." method="POST" class="card-body text-center">
+                              {% csrf_token %}
+                <div class="row">
+                    <div class="col-xs-12 col-md-offset-4 col-md-8">
+                    <div style="display:flex;" >
+                        <div style="flex:6;">
+                            <input type="text" name="phone" class="form-control" required placeholder="Phone number"/>
+                        </div>
+                        <div style="flex:2">
+                             <button type="submit" class="btn btn-outline-dark btn-sm">Submit </button>
+                        </div>
+
+                    </div>
+                        </div>
+                </div>
+
+            </form>
+            <!--Card content-->
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+          <div class="col-md-12 mb-4">
+
+          <!-- Heading -->
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            <span class="badge badge-secondary badge-pill">{{order.items.count}}</span>
+          </h4>
+
+          <!-- Cart -->
+          <ul class="list-group mb-3 z-depth-1">
+                        {% for order_item in order.items.all %}
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div style="display:flex;">
+                <h6 class="my-0 mr-4">{{order_item.quantity}} x {{order_item.item.title}}</h6>
+                <img src="{{order_item.item.image.url}}" width="50px"/>
+              </div>
+              <span class="text-muted">Ksh {{order_item.get_final_price}}</span>
+            </li>
+            {% endfor %}
+
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>Ksh {{order.get_total}}</strong>
+            </li>
+          </ul>
+          <!-- Cart -->
+
+        </div>
+
+
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+{% endblock %}

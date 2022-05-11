@@ -1,0 +1,104 @@
+{% extends 'Ecommerce/xbase.html' %}
+{% block extrastyle %}
+    <style>
+.headingtitle{
+    display:block-inline;
+}
+.color-color-primary{
+    border-left: 0.25rem solid rgb(24, 152, 168)!important;
+
+}
+.headcard{
+    background:rgb(5,89,100);
+    color:#fff;
+}
+.pass{
+  text-align: center;
+  border: none;
+  border-bottom:solid 1px grey;
+  border-radius:0;
+  background:transparent;
+  font-size: 16px;
+  font-weight: 200;
+  color:black;
+}
+.pass:focus{
+  outline: none;
+  transition: 0.5s;
+  box-shadow: inset 0 -2px 0 0 rgb(5, 89, 100) ;
+}
+
+::placeholder{
+  color:black;
+}
+.login{
+    background:white!important;
+    color:black;
+    border:solid 1px black;
+    box-shadow:none!important;
+    font-family:roboto!important;
+
+}
+.login:hover,.logincreate:hover{
+    background:rgb(236,233,233)!important;
+    color:black!important;
+}
+.logincreate{
+    background:white!important;
+    color:black;
+    border:none;
+    border-bottom:solid 1px black;
+    box-shadow:none!important;
+    font-family:roboto!important;
+
+}
+
+@media (max-width: 356px) {
+    .login{
+        padding:5px 10px!important;
+    }
+}
+
+    </style>
+{%endblock extrastyle%}
+
+{% block body %}
+
+        <div class="container" style="padding-top:100px;">
+           <div class="col-xl-5 col-sm-8 offset-md-3 offset-sm-1">
+                    <div class="card mb-3 headcard pt-4 border-left" >
+                        <h4 class="headingtitle text-center mb-4"> Edit Item to Collection <i class="fas fa-shopping-cart"></i></h4>
+                    </div>
+                   <form class="card card-body border-left-primary" action="" method="POST" role="form" enctype="multipart/form-data">
+                       {%csrf_token%}
+                       <div>
+                           <div class="form-group ">
+                                <div class="col-sm-8  offset-sm-3 col-md-8 offset-md-2" >
+                                   <input style="display:inline-block;" value="{{form.title.value}}" type="text" name="title" class="form-control pass" autocomplete="off" id="title" placeholder="Items' Name">
+                                </div> <br>
+                               <div class="col-sm-8  offset-sm-3 col-md-8 offset-md-2" >
+                                   <input style="display:inline-block;" type="url" name="url" class="form-control pass"  value="{{form.url.value}}" autocomplete="off" id="url" placeholder="URL">
+                                </div> <br>
+
+                               <div class="col-sm-8  offset-sm-3 col-md-8 offset-md-2" >
+                                     <label  style="font-size:13px;">Item's Category:</label>  <span style="font-size:10px;">{{form.category}}</span>
+                                </div> <br>
+                               <div class="col-sm-8  offset-sm-3 col-md-8 offset-md-2" >
+                                 <label>Item's Image:</label>  <span style="font-size:10px;">{{form.image}}</span>
+                                </div> <br>
+
+                           </div>
+                       </div>
+                       <div class=" mt-3" style="margin:0 auto;">
+                               <button type="submit" class="btn btn-default login btn-sm ">Add <i class="fas fa-plus-circle"></i> </button>
+                               <a href="{% url 'Ecommerce:home' %}" class="btn login btn-sm btn-default create-update">Home<i class="fas fa-home"></i></a>
+                           </div>
+
+
+                   </form>
+
+       </div>
+
+    </div>
+
+{% endblock %}

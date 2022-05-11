@@ -1,0 +1,113 @@
+
+{% extends 'Ecommerce/xbase.html' %}
+ {% block body %}
+  <!--Main layout-->
+  <main class="mt-4 pt-2">
+    <div class="container dark-grey-text mt-5">
+
+      <div class="row">
+
+        <div class="col-md-12 mb-4">
+
+            <div class="card" id="page-top">
+                <div class="card-body text-center border-to-left">
+                    <h4>Transaction History</h4>
+                </div>
+            </div>
+
+            <div class="card my-4">
+                <div class="card-body">
+                    <div class="table-responsive text-nowrap">
+                        <table class="table table-condensed table-hover ">
+                            <thead>
+                                <tr>
+
+                                    <th>Transaction</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if all_transactions %}
+                                    <tr class="text-left">
+                                    </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="4"><h6 class="text-muted">You Don't have any transactions.</h6></td>
+                            </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+      </div>
+
+      <hr>
+    </div>
+  </main>
+  <!--Main layout-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn" style="background:rgb(5,89,100);" >
+
+    <!--Call to action-->
+    <div class="pt-4">
+        <a class="scroll-to-top rounded btn btn-outline-white" href="#page-top" >Top of page
+    &nbsp;<i class="fas fa-angle-up"></i>
+  </a>
+
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
+<!--    <div class="pb-4">-->
+<!--      <a href="https://www.facebook.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-facebook-f mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://twitter.com/MDBootstrap" target="_blank">-->
+<!--        <i class="fab fa-twitter mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">-->
+<!--        <i class="fab fa-youtube mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">-->
+<!--        <i class="fab fa-google-plus-g mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://dribbble.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-dribbble mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://pinterest.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-pinterest mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">-->
+<!--        <i class="fab fa-github mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="http://codepen.io/mdbootstrap/" target="_blank">-->
+<!--        <i class="fab fa-codepen mr-3"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="#" > Xaiphas Investments. </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+
+
+{% endblock %}

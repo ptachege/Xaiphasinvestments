@@ -1,0 +1,109 @@
+
+{% extends 'Ecommerce/xbase.html' %}
+ {% block body %}
+  <!--Main layout-->
+  <main class="mt-4 pt-2">
+    <div class="container dark-grey-text mt-5">
+
+      <div class="row">
+
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body border-to-left">
+                    <div class="table-responsive text-nowrap  ">
+                       <center> <h4 class="my-4">Profile <i class="fas fa-user"></i> </h4></center>
+                <table class="table table-condensed table-bordered table-striped">
+
+                    <tbody>
+                        {% for user in users %}
+                    <tr>
+                        <td class="text-muted">Phone Number:</td>
+                        <td>{{user.username}}</td>
+                    </tr>
+                        <tr>
+                            <td class="text-muted">First Name:</td>
+                            <td>{{user.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Last Name:</td>
+                            <td>{{user.last_name}}</td>
+                        </tr>
+                                                <tr>
+                            <td class="text-muted">Email:</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+  </main>
+  <!--Main layout-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn" style="background:rgb(5,89,100);" >
+
+    <!--Call to action-->
+    <div class="pt-4">
+        <a class="scroll-to-top  btn btn-outline-white" href="#page-top" >Top of page
+    &nbsp;<i class="fas fa-angle-up"></i>
+  </a>
+
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
+<!--    <div class="pb-4">-->
+<!--      <a href="https://www.facebook.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-facebook-f mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://twitter.com/MDBootstrap" target="_blank">-->
+<!--        <i class="fab fa-twitter mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">-->
+<!--        <i class="fab fa-youtube mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">-->
+<!--        <i class="fab fa-google-plus-g mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://dribbble.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-dribbble mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://pinterest.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-pinterest mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">-->
+<!--        <i class="fab fa-github mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="http://codepen.io/mdbootstrap/" target="_blank">-->
+<!--        <i class="fab fa-codepen mr-3"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="#" > Xaiphas Investments. </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+
+
+{% endblock %}

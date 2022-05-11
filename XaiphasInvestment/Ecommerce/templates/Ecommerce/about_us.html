@@ -1,0 +1,158 @@
+{% extends 'Ecommerce/xbase.html'%}
+{% load static %}
+{% block body %}
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+
+      <!-- Heading -->
+      <h1 style="font-size:1.3rem;" class="my-3 h2 text-center">Xaiphas Investments.</h1>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+          <!--Card-->
+          <div class="card">
+            <div class="card-header" style="background:rgb(5,89,100); color:#fff;">
+              <h1 style="font-size:1.1rem;" class="my-3 h2 text-center">Who are We <i class="fas fa-question-circle"></i> </h1>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <img src="{% static 'Ecommerce/images/hood.jpg' %}" style="object-fit:cover; width:200px;" class="card-img-top" alt="image">
+                </div>
+                <div class="col-12 col-sm-8 border-to-left">
+                  <p>
+                    <blockquote>
+                      Xaiphas investments is an online clothing drop shipping company.
+                  <a href=""> Drop shipping </a> is a form of retail business wherein the seller accepts customer orders but does not keep goods sold in stock.
+                  Instead, in a form of supply chain management,
+                  it transfers the orders and their shipment details to either the manufacturer, a wholesaler,
+                  another retailer, or a fulfillment house, which then ships the goods directly to the customer.
+                  As such, the retailer is responsible for marketing and selling a product, but has little or no
+                  control over product quality, storage, inventory management, or shipping.
+                    </blockquote>
+                  </p>
+                </div>
+              </div> <br>
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <img src="{% static 'Ecommerce/images/dress.jpg' %}" style="object-fit:cover; width:200px;" class="card-img-top img-responsive" alt="image">
+                </div>
+                <div class="col-12 col-sm-8 border-to-left">
+                  <p>
+                    <blockquote>
+                      Xaiphas investments is an enterprise made of competitive digital
+                  marketers and online researchers who update, market and
+                  sell new fashion trends on related websites. They cover a wide range of
+                  options from all genders to occasional fashions. Xaiphas investments has
+                  also a window of financial investment in that for every amount you deposit/ invest
+                  in their site on the due date an interest of 10% on the initial amount is added on
+                  your withdrawal. For example, an investor invested Sh2000 in a time span of a week i.e.
+                  10% / 100% * 2000 = 200 after his total amount will be 2000+200 = 2200.
+
+                  Xaiphas investments cuts across all clothing websites and updates its fashion
+                  trends weekly basis. At the moment we deal with website to website drop shipping as we grow
+                  our individual customer service which in a shorter while we will deliver the best customer
+                  service.
+
+                    </blockquote>
+                  </p>
+                </div>
+              </div> <br>
+              <div class="row">
+
+                <div class="col-xl-12 col-lg-12">
+
+                  <!-- Area Chart -->
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Sales/Returns Stats <i class="fas fa-chart-line"></i> </h6>
+                    </div>
+                    <div class="card-body text-center" style="padding:10px 0px;!important;">
+                      <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                      </div>
+                      <hr>
+                     <span> Stats of returns of sale this month.</span>
+                    </div>
+                  </div>
+
+                 </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn" style="background:rgb(5,89,100);" >
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank"
+        role="button">Top of Page
+        <i class="fas fa-arrow-up ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
+<!--    <div class="pb-4">-->
+<!--      <a href="https://www.facebook.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-facebook-f mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://twitter.com/MDBootstrap" target="_blank">-->
+<!--        <i class="fab fa-twitter mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">-->
+<!--        <i class="fab fa-youtube mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">-->
+<!--        <i class="fab fa-google-plus-g mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://dribbble.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-dribbble mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://pinterest.com/mdbootstrap" target="_blank">-->
+<!--        <i class="fab fa-pinterest mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">-->
+<!--        <i class="fab fa-github mr-3"></i>-->
+<!--      </a>-->
+
+<!--      <a href="http://codepen.io/mdbootstrap/" target="_blank">-->
+<!--        <i class="fab fa-codepen mr-3"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="#" > Xaiphas Investment </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+
+
+{% endblock %}

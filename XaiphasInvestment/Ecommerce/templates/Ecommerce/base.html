@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'Ecommerce/fontawesome-free/css/all.min.css' %}">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'Ecommerce/theme/css/bootstrap.min.css' %}"  rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'Ecommerce/theme/css/mdb.min.css' %} " rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'Ecommerce/theme/css/style.min.css' %}" rel="stylesheet">
+  {% load cart_template_tags %}
+  {% block extrastyle %}{%endblock extrastyle%}
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 60vh;
+    }
+
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+
+.login{
+    background:white!important;
+    color:black;
+    border:solid 1px black;
+    box-shadow:none!important;
+    font-family:roboto!important;
+
+}
+.login:hover,.logincreate:hover{
+    background:rgb(236,233,233)!important;
+    color:black!important;
+}
+.logincreate{
+    background:white!important;
+    color:black;
+    border:none;
+    border-bottom:solid 1px black;
+    box-shadow:none!important;
+    font-family:roboto!important;
+
+}
+
+@media (max-width: 356px) {
+    .login{
+        padding:5px 10px!important;
+    }
+}
+.sidebar{
+
+    background: #2F323A;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition:0.5s;
+    transition-property: left;
+    z-index:1;
+    opacity:0.95;
+    font-size:1.1em;
+
+}
+
+.sidebar a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+
+
+label #sidebar_btn{
+    z-index: 1;
+    position: fixed;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+#check:checked ~ .sidebar{
+    left:-190px;
+}
+
+#check:checked ~ .sidebar a span{
+    display:none;
+}
+#check:checked ~ .sidebar a {
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+}
+#check{
+    display:none;
+}
+.content{
+    margin-left: 260px;
+    height: 100vh;
+    transition: 0.5s;
+}
+#check:checked ~ .content {
+    margin-left: 60px;
+
+}
+
+@media screen and (max-width:500px){
+.content{
+    margin-left: 0px;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container-fluid">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="{% url 'Ecommerce:home' %}" >
+        <strong class="blue-text">Xaiphas investments</strong>
+      </a>
+      {% if user.is_authenticated %}
+            <a style="color:black;" href="{% url 'Ecommerce:order_summary' %}" class="nav-link visible-xs waves-effect">
+              <span class="badge red z-depth-1 mr-1"> {{request.user|cart_item_count}} </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+      {% endif %}
+
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link waves-effect" href="{% url 'Ecommerce:home' %}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'Ecommerce:checkout' %}" target="">CheckOut</a>
+          </li>
+          {% if user.username == 'admin' %}
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'Ecommerce:add_stock' %}">Add Item</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'Ecommerce:stock_summary' %}">Stock Summary</a>
+          </li>
+
+          {% endif %}
+        </ul>
+        {% endif %}
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'Ecommerce:order_summary' %}" class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> {{request.user|cart_item_count}} </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" data-toggle="modal" data-target="#logoutModal" class="nav-link waves-effect">
+             Logout
+            </a>
+          </li>
+          {% else %}
+
+          <li class="nav-item">
+            <a href="{% url 'Ecommerce:login' %}" class="nav-link waves-effect" >
+              Login
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+
+          <input type="checkbox" checked id="check">
+
+
+        <div class="sidebar">
+            {% if personalcount < 1 %}
+               <a class="" href=""> <i class="fas fa-user"><span> &nbsp; Personal Details</span></i> </a>
+            {% else %}
+
+            {% for person in personal %}
+            <a class="" href=""> <i class="fas fa-user"><span> &nbsp; Personal Details</span></i> </a>
+            {% endfor %}
+            {% endif %}
+            <a href=""> <i class="fas fa-graduation-cap"><span> &nbsp; Educational Detail</span></i> </a>
+            <a > <i class="fas fa-briefcase"><span> &nbsp; Work History</span></i> </a>
+            <a > <i class="fas fa-trophy"><span>&nbsp; Skill</span></i> </a>
+            <a> <i class="fas fa-users"><span>&nbsp; Referees</span></i> </a>
+            <a> <i class="fas fa-arrow-circle-right"><span> &nbsp;Summary</span></i> </a>
+            <a> <i class="fas fa-power-off"><span> &nbsp;Logout</span></i> </a>
+        </div>
+
+
+
+  <!-- Navbar -->
+  <div class="content">
+
+  <div class="row">
+    <div class="col-xl-8 col-sm-6 offset-xl-2 offset-sm-3" style="position:relative;z-index:1;">
+    <div style="position:relative;top:70px; ">
+      {%if messages%}
+        {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible text-center" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {%endfor%}
+      {%endif%}
+     </div>
+      </div>
+  </div>
+{% block body %} {%endblock%}
+
+
+
+  <!--modal-->
+  <div class="modal fade" id="logoutModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="ducument">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h2 class="modal-title" id="exampleModalLabel" >Ready to Leave?</h2>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <div class="modal-body text-center bg-gray-200">Select Logout to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-default login btn-sm" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-default btn-sm login" href="{% url 'Ecommerce:logout' %}" >Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--/.end-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'Ecommerce/theme/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'Ecommerce/theme/js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'Ecommerce/theme/js/bootstrap.min.js'%}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'Ecommerce/theme/js/mdb.min.js'%}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
+</body>
+
+</html>
